@@ -1,0 +1,15 @@
+
+$("#btn").click(function(){
+	$.ajax({
+		url:"showAnimal",
+		type: "post",
+		contentType:"application/json",
+		success: [
+			function (result, status) {
+				var str=result;
+				alert(str);
+		}],
+		error: [function (res) {
+		}]
+	});
+});

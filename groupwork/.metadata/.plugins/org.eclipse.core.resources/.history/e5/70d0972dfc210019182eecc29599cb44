@@ -1,0 +1,3 @@
+ul#info > li.list-group-item{
+	border:none;
+}

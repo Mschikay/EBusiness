@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>My pets</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container">
+		
+		<div class="row justify-content-start">
+			<header>
+				<h1 id="headline">My Pets</h1>
+			</header>
+		</div>
+	
+		<div class="row justify-content-start">
+			
+			<div class="col-3 align-items-start">
+			<select  id="name" class="custom-select">
+				<option selected>Name</option>
+				<option>Meowsy</option>
+				<option>Barky</option>
+				<option>Purrpaws</option>
+			</select>
+			</div>
+			
+			<div class="col-3 align-items-start">
+				<select  id="state" class="custom-select">
+					<option selected>like?</option>
+					<option>like</option>
+					<option>dislike</option>
+				</select>
+			</div>
+			
+			<div class="col-1 align-items-start">		
+				<button id="check" class="btn btn-light">Check</button>
+			</div>
+			
+			<div class="col-1 align-items-start">
+				<button id="clear" class="btn btn-danger">Clear</button>
+			</div>
+	
+		</div>
+		
+		<div class="row justify-content-start">
+			<div class="col-10  align-items-start">
+				<ul id="info" class="class="list-group""></ul>
+			</div>
+		</div>
+	
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

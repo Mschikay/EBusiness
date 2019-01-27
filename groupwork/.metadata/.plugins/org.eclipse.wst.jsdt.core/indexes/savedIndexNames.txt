@@ -1,0 +1,10 @@
+INDEX VERSION 1.4+/Users/hannah/Previous Content/grad/2018_2019_spring/ebusiness/groupwork/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1874991791.index
+1009774408.index
+3237356764.index
+3723610041.index
+910946722.index
+220388888.index
+1820439016.index
+2188308748.index
+1221751507.index

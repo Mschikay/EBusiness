@@ -1,0 +1,10 @@
+
+public class Animal {
+	String species;
+	String state;
+	
+	public Animal(String species, String state) {
+		this.species = species;
+		this.state = state;
+	}
+}

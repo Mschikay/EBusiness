@@ -1,0 +1,42 @@
+
+$("#check").click(function(){
+	var name = document.getElementById("name").value;
+    var state = document.getElementById("state").value;
+    var data = {
+		name: name,
+		state: state
+		};
+
+	$.ajax({
+		url:"showAnimal",
+		type: "post",
+	    data: JSON.stringify(data),
+		contentType:"application/json",
+		success: [
+			function (result, status) {
+				console.log(result);
+				
+				var string = "Meowsy is a " + result.species + " that " +
+				state + " " + result.food;
+				var para = document.createElement('p');
+				para.innerHTML = string
+				var info=document.getElementById("info");
+				info.appendChild(para);
+				
+				alert(string);
+			
+		}],
+		error: [function (res) {
+			$("#clear").empty();
+			
+		}]
+	});
+});
+
+$("#clear").click(function(){
+	$("#div").empty();
+	var info=document.getElementById("info");
+	var para = document.createElement('p');
+	para.innerHTML = "Sorry. Error occurred in server."
+	info.appendChild(para);
+});
