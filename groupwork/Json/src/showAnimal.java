@@ -44,10 +44,10 @@ public class showAnimal extends HttpServlet {
 		case "Meowsy":
 			species = "Cat";
 			switch(state) {
-			case "like":
+			case "likes":
 				food = "fish";
 				break;
-			case "dislike":
+			case "dislikes":
 				food = "ham";
 				break;
 			};
@@ -55,10 +55,10 @@ public class showAnimal extends HttpServlet {
 		case "Barky":
 			species = "Dog";
 			switch(state) {
-			case "like":
+			case "likes":
 				food = "bones";
 				break;
-			case "dislike":
+			case "dislikes":
 				food = "tuna";
 				break;
 			};
@@ -66,10 +66,10 @@ public class showAnimal extends HttpServlet {
 		case "Purrpaws" :
 			species = "Cat";
 			switch(state) {
-			case "like":
+			case "likes":
 				food = "mice";
 				break;
-			case "dislike":
+			case "dislikes":
 				food = "cookie";
 				break;
 			};

@@ -9,7 +9,7 @@ $("#check").click(function(){
 		};
     var string = "";
     
-    if (name == null || state == null || name == "Name" || state == "like?"){
+    if (name == null || state == null || name == "Name" || state == "likes?"){
     	string = "Please select your pet name or pet state first."
     	var para = document.createElement('li');
     	para.className = "list-group-item";
@@ -23,7 +23,7 @@ $("#check").click(function(){
     		contentType:"application/json",
     		success: [
     			function (result, status, xhr) {
-    				console.log(xhr.status);
+    				console.log(xhr.status, result);
     				
     				string = name + " is a " + result.species + " that " +
         			state + " " + result.food;

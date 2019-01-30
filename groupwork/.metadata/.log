@@ -288,3 +288,26 @@ java.io.FileNotFoundException: /Users/hannah/Previous Content/IDE/Eclipse/Eclips
 
 !ENTRY org.eclipse.jface.text 2 0 2019-01-29 19:57:04.902
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2019-01-30 12:48:21.394 -----------------------------------------------
+eclipse.buildId=4.10.0.I20181206-0815
+java.version=1.8.0_191
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/hannah/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/hannah/.eclipse_keyring
+
+!ENTRY org.eclipse.jface.text 2 0 2019-01-30 12:48:50.149
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2019-01-30 13:06:00.128 -----------------------------------------------
+eclipse.buildId=4.10.0.I20181206-0815
+java.version=1.8.0_191
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/hannah/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/hannah/.eclipse_keyring
+
+!ENTRY org.eclipse.jface.text 2 0 2019-01-30 13:06:17.851
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2019-01-30 13:07:30.971
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
