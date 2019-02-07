@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     String u, p;
     RequestParams params;
     AsyncHttpClient client;
-    String MYURL = "";
+    String MYURL = "http://localhost:8080/MyFirstAndroidApp/Register";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
