@@ -25,8 +25,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.bson.types.ObjectId;
 import org.json.simple.JSONObject;
 
-
-
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -72,14 +70,13 @@ public class UserController {
 		repository.save(user);
 		return "register succeeded";
 	}
-	
 
 	//read by default it is GET
-	@RequestMapping(value="/{email}", method=RequestMethod.GET)
+	@RequestMapping(value="", method=RequestMethod.GET)
 	@ResponseStatus(value=HttpStatus.OK)
 	@ResponseBody
-	public User read(@RequestParam String email) {
-		return repository.findByEmail(email);
+	public String read() {
+		return "GET";
 	}
 	
 	//update

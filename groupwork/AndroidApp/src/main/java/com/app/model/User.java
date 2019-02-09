@@ -29,8 +29,8 @@ public class User {
 		return this._id;
 	}
 	
-	public void setId(String id) {
-		this._id = new ObjectId(id);
+	public void setId(ObjectId id) {
+		this._id = id;
 	}
 	
 	public String getUsername() {

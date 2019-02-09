@@ -1,44 +1,54 @@
 package com.app.model;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 public class Card {
 	
 	@Id
-	private String id;
-	private String ownerEmail;
-	private String type;
+	private ObjectId _id;
+	private String email;
 	private String cardNumber;
-	private String balance;
+	private double balance;
 	
-	public String getId() {
-		return id;
+	public Card() {}
+	
+	public Card(String email, String cardNumber, double balance) {
+		this.email = email;
+		this.cardNumber = cardNumber;
+		this.balance = balance;
 	}
-	public void setId(String id) {
-		this.id = id;
+	
+	public ObjectId getId() {
+		return _id;
 	}
-	public String getOwnerEmail() {
-		return ownerEmail;
+	
+	public void setId(ObjectId id) {
+		this._id = id;
 	}
-	public void setOwnerEmail(String ownerEmail) {
-		this.ownerEmail = ownerEmail;
+	
+	public String getEmail() {
+		return email;
 	}
-	public String getType() {
-		return type;
+	
+	public void setUserId(String email) {
+		this.email = email;
 	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 	public String getCardNumber() {
 		return cardNumber;
 	}
+	
 	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
-	public String getBalance() {
+	
+	public double getBalance() {
 		return balance;
 	}
-	public void setBalance(String balance) {
+	
+	public void setBalance(double balance) {
 		this.balance = balance;
 	}
+	
 }

@@ -1,20 +1,29 @@
 package com.app.model;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 public class Product {
 	
 	@Id
-	private String id;
+	private ObjectId _id;
 	private String name;
-	private String price;
-	private String count;
+	private double price;
+	private long count;
 	
-	public String getId() {
-		return id;
+	public Product() {}
+	
+	public Product(String name, double price, long count) {
+		this.name = name;
+		this.price = price;
+		this.count = count;
 	}
-	public void setId(String id) {
-		this.id = id;
+	
+	public ObjectId getId() {
+		return _id;
+	}
+	public void setId(ObjectId id) {
+		this._id = id;
 	}
 	public String getName() {
 		return name;
@@ -22,16 +31,16 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getCount() {
+	public long getCount() {
 		return count;
 	}
-	public void setCount(String count) {
+	public void setCount(long count) {
 		this.count = count;
 	}
 	
