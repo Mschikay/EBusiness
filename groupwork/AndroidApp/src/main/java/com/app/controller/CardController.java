@@ -30,7 +30,7 @@ public class CardController {
 		private UserRepository userRepository;
 		
 		//add
-		@RequestMapping(value="", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+		@RequestMapping(value="/add", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	 	@ResponseStatus(value=HttpStatus.OK)
 	 	@ResponseBody
 	 	public String add(@RequestBody JSONObject jsonObject) {
