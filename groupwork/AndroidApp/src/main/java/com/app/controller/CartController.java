@@ -2,8 +2,7 @@ package com.app.controller;
 
 import java.util.Date;
 
-import org.bson.types.ObjectId;
-import org.json.simple.JSONObject;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,35 +15,89 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.model.Cart;
 import com.app.repository.CartRepository;
-import com.app.repository.ProductRepository;
 
 @RestController
 @RequestMapping("/cart")
+@ResponseStatus(value=HttpStatus.OK)
 public class CartController {
-	
-	@Autowired
-	private ProductRepository productRepository;
+
 	@Autowired
 	private CartRepository cartRepository;
 	
-	// add one kind of product
-	@RequestMapping(value="/addbyid", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
- 	@ResponseStatus(value=HttpStatus.OK)
- 	@ResponseBody
-	public void add(@RequestBody JSONObject jsonObject) {
-//		private ObjectId _id;
-//		private ObjectId userId;
-//		private ObjectId productId;
-//		private long count;
-//		private Date date;
-		ObjectId userId = (ObjectId) jsonObject.get("userId");
-		ObjectId productId = (ObjectId) jsonObject.get("productId");
-		long count = (long) jsonObject.get("count");
+	// add one kind of product to cart
+	@RequestMapping(value="", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String add(@RequestBody String json) {
+		//		private ObjectId _id;
+		//		private ObjectId email;
+		//		private ObjectId productName;
+		//		private long count;
+		//		private Date date;
+		JSONObject jsonObject = new JSONObject(json);
+		String email = jsonObject.getString("email");
+		String productName = jsonObject.getString("productName");
 		
-		// productId and userId already exist, no save
-		Cart cart = new Cart(userId, productId, count);
-		cartRepository.save(cart);
-
-		// return json response
+		Cart oldCart = cartRepository.findCartByEmailAndProductName(email, productName);
+		if (oldCart == null) {
+			Cart cart = new Cart(email, productName, 1);
+			cartRepository.save(cart);	
+		}else {
+			// already exist, add by 1
+			oldCart.setCount(oldCart.getCount() + 1);
+			cartRepository.save(oldCart);
+		}
+		return "add succeeded";
 	}
+	
+	// update count
+	@RequestMapping(value="", method=RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String alterCount(@RequestBody String json) {
+		//		private ObjectId _id;
+		//		private ObjectId email;
+		//		private ObjectId productName;
+		//		private long count;
+		//		private Date date;
+		JSONObject jsonObject = new JSONObject(json);
+		String email = jsonObject.getString("email");
+		String productName = jsonObject.getString("productName");
+		long count = (long) jsonObject.getLong("count");
+		
+		Cart oldCart = cartRepository.findCartByEmailAndProductName(email, productName);
+		if (oldCart == null) {
+			// product not exist in cart
+			return "no this product in cart";
+		}else {
+			// exist, alter count
+			oldCart.setCount(count);
+			oldCart.setDate(new Date());
+			cartRepository.save(oldCart);
+			return "update succeeded";
+		}
+	}
+	
+	// delete
+	@RequestMapping(value="", method=RequestMethod.DELETE, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String deleteProduct(@RequestBody String json) {
+		//		private ObjectId _id;
+		//		private ObjectId email;
+		//		private ObjectId productName;
+		//		private long count;
+		//		private Date date;
+		JSONObject jsonObject = new JSONObject(json);
+		String email = jsonObject.getString("email");
+		String productName = jsonObject.getString("productName");
+		
+		Cart oldCart = cartRepository.findCartByEmailAndProductName(email, productName);
+		if (oldCart == null) {
+			// product not exist in cart
+			return "no product in cart";
+		}else {
+			cartRepository.delete(oldCart);
+			return "delete Succeeded";
+		}
+	}
+	
+	
 }

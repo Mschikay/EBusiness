@@ -9,48 +9,48 @@ public class Cart {
 	
 	@Id
 	private ObjectId _id;
-	private ObjectId userId;
-	private ObjectId productId;
+	private String email;
+	private String productName;
 	private long count;
 	private Date date;
 	
 	public Cart() {}
 	
-	public Cart(ObjectId userId, ObjectId productId, long count) {
-		this.userId = userId;
-		this.productId = productId;
+	public Cart(String email, String productName, long count) {
+		this.email = email;
+		this.productName = productName;
 		this.count = count;
 		this.date = new Date();
 	}
-	
-	public ObjectId getId() {
+
+	public ObjectId get_id() {
 		return _id;
 	}
-	
-	public void setId(ObjectId id) {
-		this._id = id;
+
+	public void set_id(ObjectId _id) {
+		this._id = _id;
 	}
-	
-	public ObjectId getUserId() {
-		return userId;
+
+	public String getEmail() {
+		return email;
 	}
-	
-	public void setUserId(ObjectId userId) {
-		this.userId = userId;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	
-	public ObjectId getProductId() {
-		return productId;
+
+	public String getProductName() {
+		return productName;
 	}
-	
-	public void setProductId(ObjectId productId) {
-		this.productId = productId;
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
-	
+
 	public long getCount() {
 		return count;
 	}
-	
+
 	public void setCount(long count) {
 		this.count = count;
 	}
@@ -62,7 +62,4 @@ public class Cart {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	
-	
 }

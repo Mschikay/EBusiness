@@ -1,7 +1,6 @@
 package com.app.controller;
 
 import org.bson.types.ObjectId;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.json.JSONObject;
 
 import com.app.model.Product;
 import com.app.repository.ProductRepository;
@@ -26,10 +26,13 @@ public class ProductController {
 	@RequestMapping(value="", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
  	@ResponseStatus(value=HttpStatus.OK)
  	@ResponseBody
- 	public String add(@RequestBody JSONObject jsonObject) {
-		String name = (String) jsonObject.get("name");
-		double price = (double) jsonObject.get("price");
-		long count = (long) jsonObject.get("count");
+ 	public String add(@RequestBody String json) {
+		System.out.println(json);
+		JSONObject jsonObject = new JSONObject(json);
+		
+		String name = jsonObject.getString("name");
+		double price = jsonObject.getDouble("price");
+		long count = jsonObject.getLong("count");
 		Product p = new Product(name, price, count);
 		productRepository.save(p);
 		return "add succeeded";
@@ -39,13 +42,16 @@ public class ProductController {
 	@RequestMapping(value="", method=RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value=HttpStatus.OK)
 	@ResponseBody
-	public String update(@RequestBody JSONObject jsonObject) {
-		String name = (String) jsonObject.get("name");
-		double price = (double) jsonObject.get("price");
-		long count = (long) jsonObject.get("count");
+	public String update(@RequestBody String json) {
+		System.out.println(json);
+		JSONObject jsonObject = new JSONObject(json);
+		
+		String name = jsonObject.getString("name");
+		double price = jsonObject.optDouble("price", -1);
+		long count = jsonObject.optLong("count", -1);
 			
 			if (name == null) {
-				return "invalid email";
+				return "invalid product name";
 			}
 			Product oldProduct = productRepository.findByName(name);
 			if (oldProduct == null) {
@@ -66,7 +72,7 @@ public class ProductController {
 			return "update succeeded";
 		}
 		
-		//delete e.g. http://localhost:8080/product?name=Friendly milk
+		//delete e.g. http://localhost:8080/product?name=xxxx
 		@RequestMapping(value="", method=RequestMethod.DELETE)
 		@ResponseStatus(value=HttpStatus.OK)
 		@ResponseBody

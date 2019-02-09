@@ -9,12 +9,21 @@ public class Order {
 	
 	@Id
 	private ObjectId _id;
-	private ObjectId userId;
+	private String email;
 	private String cardNumber;
-	private ObjectId productId;
+	private String productName;
 	private long count;
 	private Date date;
 	
+	public Order() {}
+	
+	public Order(String email, String cardNumber, String productName, long count) {
+		this.email = email;
+		this.cardNumber = cardNumber;
+		this.productName = productName;
+		this.count = count;
+		this.date = new Date();
+	}
 	
 	public ObjectId get_id() {
 		return _id;
@@ -23,16 +32,15 @@ public class Order {
 	public void set_id(ObjectId _id) {
 		this._id = _id;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
 
-	public ObjectId getUserId() {
-		return userId;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	
-	public void setUserId(ObjectId userId) {
-		this.userId = userId;
-	}
-	
-	
+
 	public String getCardNumber() {
 		return cardNumber;
 	}
@@ -42,12 +50,12 @@ public class Order {
 	}
 
 	
-	public ObjectId getProductId() {
-		return productId;
+	public String getProductName() {
+		return productName;
 	}
 	
-	public void setProductId(ObjectId productId) {
-		this.productId = productId;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 	
 	public long getCount() {

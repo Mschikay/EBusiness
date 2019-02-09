@@ -1,17 +1,22 @@
 package com.app.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.bson.types.ObjectId;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.model.Card;
+import com.app.model.Order;
 import com.app.model.Product;
 import com.app.model.User;
 import com.app.repository.CardRepository;
@@ -23,69 +28,59 @@ import com.app.repository.UserRepository;
 @RestController
 @RequestMapping("/order")
 public class OrderController {
-//	{
-//		"products": [{
-//		  "productID": "1234123412341234",
-//		  "count": 1
-//		 },
-//		 {
-//		  "productID": "4321432143214321",
-//		  "count": 1
-//		 }
-//		],
-//		"email": "user1@gmail.com"
-//		}
 	
 	@Autowired
 	private ProductRepository productRepository;
 	@Autowired
-	private CartRepository cartRepository;
-	@Autowired
-	private OrderRepository orderRepository;
-	@Autowired
 	private CardRepository cardRepository;
 	@Autowired
-	private UserRepository userRepository;
+	private OrderRepository orderRepository;
 	
-	public void placeOrder(@RequestBody JSONObject jsonObject) {
-		JSONArray jsonArray = (JSONArray)jsonObject.get("products");
-		String cardNumber = (String) jsonObject.get("cardNumber");
-		String email = (String) jsonObject.get("email");
+	@RequestMapping(value="", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String placeOrder(@RequestBody String json) {
+		JSONObject jsonObject = new JSONObject(json);
+		JSONArray jsonArray = jsonObject.getJSONArray("products");
+		String email = jsonObject.getString("email");
 		
 		double total = 0;
-		double[] newCount = new double[jsonArray.size()];
-		Product[] newProducts = new Product[jsonArray.size()];
-		for(int i=0; i<jsonArray.size(); i++){  
+		Product[] newProducts = new Product[jsonArray.length()];
+		for(int i=0; i<jsonArray.length(); i++){  
 			JSONObject obj = (JSONObject) jsonArray.get(i);
-			ObjectId productId = (ObjectId) obj.get("productId");
-			Product p = productRepository.findById(productId).get();
-			double price = p.getPrice();
-			long count = (long) obj.get("count");
+			String productName = obj.getString("productName");
+			System.out.println(productName);
+			long count = (long) obj.getLong("count");
+
+			Product p = productRepository.findByName(productName);
 			if (count > p.getCount()) {
-				//no enough quantity
+				return "storage not enough";
 			}else {
 				p.setCount(p.getCount() - count);
 				newProducts[i] = p;
 			}
-			total = total + price * count;
+			total = total + p.getPrice() * count;
 		}  
 		
+		// alter card info
 		Card c = cardRepository.findByEmail(email);
 		if (c == null) {
-			//return "no card";
+			return "user has no card";
 		}
-		if (c.getBalance() <= total) {
-			// no enough money
+		if (c.getBalance() < total) {
+			return "no enough money";
 		}else {
 			c.setBalance(c.getBalance()-total);
 		}
 		
+		// save card and products
 		for (int i = 0;i<newProducts.length;i++) {
+			Product p = newProducts[i];
 			productRepository.save(newProducts[i]);
+			Order order = new Order(email, c.getCardNumber(), p.getName(), p.getCount());
+			orderRepository.save(order);
 		}
 		cardRepository.save(c);
-		
-		
+		return "add succeeded";
 		
 	}
 	

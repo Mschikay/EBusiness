@@ -18,35 +18,35 @@ public class Card {
 		this.cardNumber = cardNumber;
 		this.balance = balance;
 	}
-	
-	public ObjectId getId() {
+
+	public ObjectId get_id() {
 		return _id;
 	}
-	
-	public void setId(ObjectId id) {
-		this._id = id;
+
+	public void set_id(ObjectId _id) {
+		this._id = _id;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
-	
-	public void setUserId(String email) {
+
+	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public String getCardNumber() {
 		return cardNumber;
 	}
-	
+
 	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
-	
+
 	public double getBalance() {
 		return balance;
 	}
-	
+
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
