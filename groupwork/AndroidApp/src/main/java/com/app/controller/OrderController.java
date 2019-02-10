@@ -1,10 +1,5 @@
 package com.app.controller;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.bson.types.ObjectId;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.model.Card;
 import com.app.model.Order;
 import com.app.model.Product;
-import com.app.model.User;
 import com.app.repository.CardRepository;
-import com.app.repository.CartRepository;
 import com.app.repository.OrderRepository;
 import com.app.repository.ProductRepository;
-import com.app.repository.UserRepository;
+
 
 @RestController
 @RequestMapping("/order")
@@ -45,6 +38,7 @@ public class OrderController {
 		
 		double total = 0;
 		Product[] newProducts = new Product[jsonArray.length()];
+		long[] countToBuy = new long[jsonArray.length()]; 
 		for(int i=0; i<jsonArray.length(); i++){  
 			JSONObject obj = (JSONObject) jsonArray.get(i);
 			String productName = obj.getString("productName");
@@ -57,6 +51,7 @@ public class OrderController {
 			}else {
 				p.setCount(p.getCount() - count);
 				newProducts[i] = p;
+				countToBuy[i] = count;
 			}
 			total = total + p.getPrice() * count;
 		}  
@@ -76,7 +71,7 @@ public class OrderController {
 		for (int i = 0;i<newProducts.length;i++) {
 			Product p = newProducts[i];
 			productRepository.save(newProducts[i]);
-			Order order = new Order(email, c.getCardNumber(), p.getName(), p.getCount());
+			Order order = new Order(email, c.getCardNumber(), p.getName(), countToBuy[i]);
 			orderRepository.save(order);
 		}
 		cardRepository.save(c);
