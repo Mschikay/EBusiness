@@ -15,7 +15,6 @@
 <fullyQualifiedTypeName name="repository.UserRepository"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
 <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 <fullyQualifiedTypeName name="controller.userController"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
@@ -44,8 +43,12 @@
 <fullyQualifiedTypeName name="com.app.model.Card"/>
 <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
 <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
-<fullyQualifiedTypeName name="org.json.JSONObject"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+<fullyQualifiedTypeName name="org.json.JSONObject"/>
+<fullyQualifiedTypeName name="org.json.JSONArray"/>
+<fullyQualifiedTypeName name="com.app.model.Order"/>
 </qualifiedTypeNameHistroy>

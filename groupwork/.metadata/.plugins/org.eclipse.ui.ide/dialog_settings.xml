@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/3 validate-demo"/>
+	</list>
 	<section name="CleanDialogSettings">
 		<item value="484" key="DIALOG_WIDTH"/>
 		<item value="true" key="BUILD_ALL"/>
@@ -8,6 +11,17 @@
 		<item value="478" key="DIALOG_X_ORIGIN"/>
 		<item value="199" key="DIALOG_Y_ORIGIN"/>
 		<item value="true" key="BUILD_NOW"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/3 validate-demo"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
 	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>

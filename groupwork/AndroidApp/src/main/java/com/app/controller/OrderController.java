@@ -32,6 +32,7 @@ public class OrderController {
 	@RequestMapping(value="", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String placeOrder(@RequestBody String json) {
+		System.out.println(json);
 		JSONObject jsonObject = new JSONObject(json);
 		JSONArray jsonArray = jsonObject.getJSONArray("products");
 		String email = jsonObject.getString("email");
@@ -42,10 +43,14 @@ public class OrderController {
 		for(int i=0; i<jsonArray.length(); i++){  
 			JSONObject obj = (JSONObject) jsonArray.get(i);
 			String productName = obj.getString("productName");
-			System.out.println(productName);
 			long count = (long) obj.getLong("count");
+			System.out.println(productName);
+			System.out.println(count);
 
 			Product p = productRepository.findByName(productName);
+			if (p == null) {
+				return "no such product";
+			}
 			if (count > p.getCount()) {
 				return "storage not enough";
 			}else {
@@ -76,7 +81,6 @@ public class OrderController {
 		}
 		cardRepository.save(c);
 		return "add succeeded";
-		
 	}
 	
 }
