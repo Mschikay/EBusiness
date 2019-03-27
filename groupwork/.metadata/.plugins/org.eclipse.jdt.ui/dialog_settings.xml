@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/3 validate-demo/WebContent/WEB-INF/lib" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/jdbc-student-tracker-final/WebContent/WEB-INF/lib" key="org.eclipse.jdt.ui.lastextjar"/>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item value="false" key="renameSubpackages"/>
 		<item value="false" key="updateQualifiedNames"/>
@@ -39,7 +39,7 @@
 		<item value="false" key="FinalModifier"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item value="0" key="index"/>
+		<item value="1" key="index"/>
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>

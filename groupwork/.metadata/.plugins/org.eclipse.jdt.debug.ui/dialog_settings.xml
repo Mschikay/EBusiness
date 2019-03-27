@@ -2,7 +2,7 @@
 <section name="Workbench">
 	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
 		<item value="true" key="ShowStatusLine"/>
-		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode&gt;=AndroidApp/\/Users\/hannah\/.gradle\/caches\/modules-2\/files-2.1\/org.apache.tomcat.embed\/tomcat-embed-core\/8.5.34\/a038040d68a90397f95dd1e11b979fe364a5000f\/tomcat-embed-core-8.5.34.jar&amp;lt;org.apache.catalina.startup(Tomcat$1.class[&lt;/infoNode&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode&gt;=app/\/Users\/hannah\/.m2\/repository\/mysql\/mysql-connector-java\/6.0.6\/mysql-connector-java-6.0.6.jar&amp;lt;com.mysql.cj.jdbc(DocsConnectionPropsHelper.class[DocsConnectionPropsHelper&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=jdbc-student-tracker-final/\/Users\/hannah\/PreviousContent\/grad\/2018_2019_spring\/ebusiness\/groupwork\/jdbc-student-tracker-final\/WebContent\/WEB-INF\/lib\/mysql-connector-java-5.1.36-bin.jar&amp;lt;com.mysql.jdbc(DocsConnectionPropsHelper.class[DocsConnectionPropsHelper&lt;/infoNode&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
 		<section name="DialogBoundsSettings">
 			<item value="600" key="DIALOG_WIDTH"/>
 			<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
