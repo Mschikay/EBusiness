@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/deftERP-master"/>
 		<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/3 validate-demo"/>
 	</list>
 	<section name="CleanDialogSettings">
@@ -17,11 +18,12 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/jdbc-student-tracker-final"/>
 			<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork"/>
+			<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/jdbc-student-tracker-final"/>
 			<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/3 validate-demo"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/deftERP-master.zip"/>
 			<item value=""/>
 		</list>
 	</section>
