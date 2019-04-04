@@ -58,3 +58,5 @@ update Hotel set total_people = 95 where id=2;
 update Hotel set addr = 'New York' where id=3;
 update Hotel set addr = 'New York' where id=4;
 
+select * from orders
+

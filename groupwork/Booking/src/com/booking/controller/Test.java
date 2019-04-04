@@ -27,17 +27,25 @@ public class Test extends HttpServlet{
 			Date checkout = Date.valueOf(checkInDate);
 			System.out.println(checkin);
 			RootDb rootdb = RootDb.getInstance();
-			String hotel = rootdb.getAvailable(checkin, checkout, "New York", 16);
-	        	        
-	    	PrintWriter out = response.getWriter();
-	    	response.setContentType("text/html");
-	    	out.print("<center><h1>"+hotel+"</h1></center>");
+			rootdb.insertOrder(1, 1, checkin, checkout, "Ziqi", "Tang");
+	        
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
 	}
 	
 	public static void main(String args[]) throws Exception {
-		
+		try {
+	    	String checkInDate = "2019-03-28";
+			String checkOutDate = "2019-03-30";
+			Date checkin = Date.valueOf(checkInDate);
+			Date checkout = Date.valueOf(checkOutDate);
+			System.out.println(checkin);
+			RootDb rootdb = RootDb.getInstance();
+			rootdb.insertOrder(1, 1, checkin, checkout, "Ziqi", "Tang");
+	        
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 }

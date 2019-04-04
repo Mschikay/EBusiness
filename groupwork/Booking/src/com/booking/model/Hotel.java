@@ -1,7 +1,10 @@
 package com.booking.model;
 
+import javax.faces.bean.ManagedBean;
 
+@ManagedBean
 public class Hotel {
+	
 	private int id;
 	private String name;
 	private String addr;

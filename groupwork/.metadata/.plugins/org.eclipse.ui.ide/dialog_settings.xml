@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/hannah/Desktop/JSF Datepicker"/>
+		<item value="/Users/hannah/Desktop/HTML5-JSF2.2-BeanValidation1.1-master"/>
 		<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/deftERP-master"/>
 		<item value="/Users/hannah/PreviousContent/grad/2018_2019_spring/ebusiness/groupwork/3 validate-demo"/>
 	</list>

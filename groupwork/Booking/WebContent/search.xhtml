@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>test</title>
+</h:head>
+
+<h:body>
+<div id="container">
+		<h3>apply search</h3>
+
+		<h:messages globalOnly="true" />
+
+		<h:form id="form" style="margin-top: 10px;" >
+			
+			<h:inputText value="#{checkin}" id="checkin" required="true"/><h:message for="checkin" />
+	
+			<h:inputText value="#{checkout}" id="checkout" required="true"/><h:message for="checkout" />
+	
+			<h:inputText value="#{addr}" id="addr" required="true"/><h:message for="addr" />
+				
+			<h:inputText value="#{people}" id="people" required="true"/><h:message for="people" />
+				
+			<h:commandButton value="search" action="#{getHotel.displayAvailableHotels(checkin, checkout, addr, people)}"/>
+		</h:form>
+
+		<p><h:outputLink value="hotel.xhtml">SEARCH</h:outputLink></p>
+
+</div>
+
+<div id="container">
+
+		<div id="content">
+		
+			<h:messages globalOnly="true" />
+		
+<!-- 			<h:button value="Add Student" styleClass="add-student-button" outcome="add-student-form"/>			
+ -->
+			<h:form>
+						
+			<h:dataTable value="#{hotels}" var="tempHotel"
+				styleClass="demo-table" 
+				headerClass="demo-table-header"
+				rowClasses="demo-table-odd-row,demo-table-even-row">
+
+				<h:column>
+					<!-- the column header -->
+					<f:facet name="header">id</f:facet>
+
+					<!--  the value for each row -->
+					#{tempHotel.id}
+				</h:column>
+
+				<h:column>
+					<!-- the column header -->
+					<f:facet name="header">Name</f:facet>
+
+					<!--  the value for each row -->
+					#{tempHotel.name}
+				</h:column>
+
+				<h:column>
+					<!-- the column header -->
+					<f:facet name="header">addr</f:facet>
+
+					<!--  the value for each row -->
+					#{tempHotel.addr}
+				</h:column>
+
+
+			</h:dataTable>
+
+			</h:form>
+
+		</div>
+		
+</div>
+</h:body>
+</html>	
